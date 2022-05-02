@@ -2,7 +2,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # (c) gautamajay52
-# (c) MaxxRider
+
 
 import asyncio
 import logging
@@ -112,7 +112,7 @@ class CloneHelper:
             button.append(
                 [
                     pyrogram.InlineKeyboardButton(
-                        text="🔮 CLOUD LINK", url=f"{gau_link}"
+                        text="☁️ 𝙂𝘿𝙧𝙞𝙫𝙚-𝙐𝙧𝙡 ☁️", url=f"{gau_link}"
                     )
                 ]
             )
@@ -126,13 +126,13 @@ class CloneHelper:
                 button.append(
                     [
                         pyrogram.InlineKeyboardButton(
-                            text="💡 𝐈𝐧𝐝𝐞𝐱 𝐋𝐢𝐧𝐤", url=f"{tam_link}"
+                            text="🎦 𝙄𝙣𝙙𝙚𝙭-𝙐𝙧𝙡 🎦", url=f"{tam_link}"
                         )
                     ]
                 )
             button_markup = pyrogram.InlineKeyboardMarkup(button)
             msg = await self.lsg.edit_text(
-                f"🐈: {_up} Cloned successfully in your Cloud <a href='tg://user?id={self.u_id}'>😊</a>\
+                f"🤖: {_up} 𝙘𝙡𝙤𝙣𝙚𝙙 𝙨𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮 𝙞𝙣 𝙮𝙤𝙪𝙧 𝘾𝙡𝙤𝙪𝙙 \n<a href='tg://user?id={self.u_id}'>#Cloned To Team Drive ✅</a>\
                 \n📀 Info: Calculating...",
                 reply_markup=button_markup,
                 parse_mode="html",
@@ -140,7 +140,7 @@ class CloneHelper:
             g_cmd = [
                 "rclone",
                 "size",
-                "--config=rclone.conf",
+                "--config=./rclone.conf",
                 f"{self.dname}:{destination}/{self.name}",
             ]
             LOGGER.info(g_cmd)
@@ -153,20 +153,20 @@ class CloneHelper:
             LOGGER.info(am.decode("utf-8"))
             await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
             await msg.edit_text(
-                f"🐈: {_up} Cloned successfully in your Cloud <a href='tg://user?id={self.u_id}'>😊</a>\
+                f"🤖: {_up} 𝙘𝙡𝙤𝙣𝙚𝙙 𝙨𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮 𝙞𝙣 𝙮𝙤𝙪𝙧 𝘾𝙡𝙤𝙪𝙙 \n<a href='tg://user?id={self.u_id}'>#Cloned To Team Drive ✅</a>\
                 \n📀 Info:\n{g_autam}",
                 reply_markup=button_markup,
                 parse_mode="html",
             )
 
     async def gcl(self):
-        self.lsg = await self.mess.reply_text(f"Cloning...you should wait 🤒")
+        self.lsg = await self.mess.reply_text(f"𝘾𝙡𝙤𝙣𝙞𝙣𝙜...𝙮𝙤𝙪 𝙨𝙝𝙤𝙪𝙡𝙙 𝙬𝙖𝙞𝙩 😀")
         destination = f"{DESTINATION_FOLDER}"
         idd = "{" f"{self.g_id}" "}"
         cmd = [
             "/app/gautam/gclone",
             "copy",
-            "--config=rclone.conf",
+            "--config=./rclone.conf",
             f"{self.dname}:{idd}",
             f"{self.dname}:{destination}/{self.name}",
             "-v",

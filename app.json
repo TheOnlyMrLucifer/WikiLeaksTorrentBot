@@ -1,8 +1,8 @@
 {
-  "name": "Telegram Leech Bot By WikiLeaks",
-  "description": "A Telegram Torrent (and youtube-dl) Leecher based on Pyrogram. Made By - WikiLeaks",
+  "name": "WikiLeechBot",
+  "description": "A Telegram Torrent (and youtube-dl) Leecher based on Pyrogram.",
   "logo": "https://telegra.ph/file/b9b3e76c4b930a6ec223e.jpg",
-  "keywords": [
+    "keywords": [
     "telegram"
   ],
   "repository": "https://github.com/TheOnlyMrLucifer/WikiLeaksTorrentBot",
@@ -26,7 +26,7 @@
       "value": ""
     },
     "AUTH_CHANNEL": {
-      "description": "should be an integer. The BOT API ID of the Telegram Group, where the Leecher should work., Put Group ID",
+      "description": "should be an integer. The BOT API ID of the Telegram Group, where the Leecher should work.",
       "value": ""
     },
     "OWNER_ID": {
@@ -69,15 +69,7 @@
       "required": false
     },
     "LEECH_COMMAND": {
-      "description": "Enter your custom leech command like /leech@botname and so on. Default is /leech",
-      "required": false
-    },
-    "SAVE_THUMBNAIL": {
-      "description": "For custom thumbnail Command. default is /savethumbnail",
-      "required": false
-    },
-    "CLEAR_THUMBNAIL": {
-      "description": "For Delete Thumbnail Command. Default is /clearthumbnail",
+      "description": "Enter your custom leech command like /leech@urgroupname and so on. Default is /leech",
       "required": false
     },
     "INDEX_LINK": {
@@ -113,11 +105,11 @@
       "required": false
     },
     "DESTINATION_FOLDER": {
-      "description": "Enter your Cloud folder NAME(not ID😅) in which you want to upload/store your files.",
+      "description": "Enter your Cloud folder NAME(not ID) in which you want to upload/store your files.",
       "required": false
     },
     "CUSTOM_FILE_NAME": {
-      "description": "fill with name u want to prefix the file name like ur channel username🙊, keep empty for do nothing, but add to ur config vars even without input.",
+      "description": "fill with name u want to prefix the file name like ur channel username, keep empty for do nothing, but add to ur config vars even without input.",
       "required": false
     }
   },

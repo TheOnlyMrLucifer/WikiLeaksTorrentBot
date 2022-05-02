@@ -41,7 +41,9 @@ from tobrot import (
     GYTDL_COMMAND,
     GPYTDL_COMMAND,
     TOGGLE_VID,
+    RCLONE_COMMAND,
     TOGGLE_DOC,
+    HELP_COMMAND
 )
 from tobrot.helper_funcs.download import down_load_media_f
 from tobrot.plugins.call_back_button_handler import button
@@ -57,7 +59,7 @@ from tobrot.plugins.incoming_message_fn import (
     incoming_youtube_dl_f,
     rename_tg_file,
 )
-from tobrot.plugins.new_join_fn import new_join_f
+from tobrot.plugins.new_join_fn import help_message_f, new_join_f
 from tobrot.plugins.rclone_size import check_size_g, g_clearme
 from tobrot.plugins.status_message_fn import (
     cancel_message_f,
@@ -67,7 +69,7 @@ from tobrot.plugins.status_message_fn import (
     upload_document_f,
     upload_log_file,
     upload_as_doc,
-    upload_as_video,
+    upload_as_video
 )
 
 if __name__ == "__main__":
@@ -191,27 +193,23 @@ if __name__ == "__main__":
     )
     app.add_handler(upload_log_handler)
     #
-    '''
     help_text_handler = MessageHandler(
         help_message_f,
-        filters=filters.command(["help"]) & filters.chat(chats=AUTH_CHANNEL),
+        filters=filters.command([f"{HELP_COMMAND}"]) & filters.chat(chats=AUTH_CHANNEL),
     )
     app.add_handler(help_text_handler)
-    '''
     #
     new_join_handler = MessageHandler(
         new_join_f, filters=~filters.chat(chats=AUTH_CHANNEL)
     )
     app.add_handler(new_join_handler)
     #
-    '''
     group_new_join_handler = MessageHandler(
         help_message_f,
         filters=filters.chat(chats=AUTH_CHANNEL) & filters.new_chat_members,
     )
     app.add_handler(group_new_join_handler)
     #
-    '''
     call_back_button_handler = CallbackQueryHandler(button)
     app.add_handler(call_back_button_handler)
     #
@@ -230,21 +228,22 @@ if __name__ == "__main__":
     app.add_handler(clear_thumb_nail_handler)
     #
     rclone_config_handler = MessageHandler(
-        rclone_command_f, filters=filters.command(["rclone"])
+        rclone_command_f, filters=filters.command([f"{RCLONE_COMMAND}"])
     )
     app.add_handler(rclone_config_handler)
     #
     upload_as_doc_handler = MessageHandler(
         upload_as_doc,
-        filters=filters.command([f"{TOGGLE_DOC}"]) & filters.chat(chats=AUTH_CHANNEL), 
+        filters=filters.command([f"{TOGGLE_DOC}"])
+        & filters.chat(chats=AUTH_CHANNEL),
     )
     app.add_handler(upload_as_doc_handler)
     #
     upload_as_video_handler = MessageHandler(
         upload_as_video,
-        filters=filters.command([f"{TOGGLE_VID}"]) & filters.chat(chats=AUTH_CHANNEL), 
+        filters=filters.command([f"{TOGGLE_VID}"])
+        & filters.chat(chats=AUTH_CHANNEL),
     )
     app.add_handler(upload_as_video_handler)
     #
     app.run()
-
